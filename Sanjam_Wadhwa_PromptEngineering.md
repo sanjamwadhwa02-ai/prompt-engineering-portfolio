@@ -115,7 +115,38 @@ Additional Taglines:
 Role assignment and context setting significantly improved the quality of responses. By assigning roles such as "expert teacher" and "professional copywriter," the model generated outputs with appropriate expertise and tone. Providing context about the audience and purpose helped the model create more relevant and focused responses. Overall, role-based prompting and context setting resulted in clearer, more accurate, and more effective outputs.
 
 ## Part 2: Temperature & Parameter Control
+### 2.1 Temperature Experimentation
 
+**Chosen Task:** Creating a Short Story Opening
+
+**Prompt:** Write a 2-3 sentence opening for a story about a mysterious door discovered in an old library.
+
+#### Low Temperature (0.2)
+
+**Output:**
+An old library stood quietly at the edge of town. While organizing books, a librarian discovered a hidden door behind a shelf. Nobody knew where it led.
+
+#### Medium Temperature (0.7)
+
+**Output:**
+While dusting forgotten shelves in the oldest corner of the library, Emma noticed a small wooden door hidden behind rows of ancient books. Strange symbols were carved into its surface, and a faint glow seeped through the cracks.
+
+#### High Temperature (1.2)
+
+**Output:**
+The door appeared only when the clock struck thirteen. Hidden behind a shelf of whispering books, it shimmered with silver light and seemed to breathe like a living creature. Emma reached for the handle as distant voices called her name from the other side.
+
+### Comparison Table
+
+| Temperature | Characteristics | Output Style |
+|------------|----------------|-------------|
+| 0.2 | Focused and factual | Simple and direct |
+| 0.7 | Balanced | Descriptive and engaging |
+| 1.2 | Highly creative | Imaginative and unpredictable |
+
+### 2.2 Analysis & Recommendations
+
+Low temperature is useful when generating factual information, technical documentation, and educational content. It is also suitable for customer support responses where consistency is important. High temperature is useful for creative writing and brainstorming sessions where originality is desired. For this task, the medium temperature worked best because it balanced creativity and coherence. The story remained interesting while still being easy to understand.
 
 
 ## Part 3: Strategic Prompting Techniques
