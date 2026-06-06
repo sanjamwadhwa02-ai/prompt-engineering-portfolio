@@ -150,7 +150,99 @@ Low temperature is useful when generating factual information, technical documen
 
 
 ## Part 3: Strategic Prompting Techniques
+### 3.1 Chain-of-Thought Prompting
 
+**Selected Problem:** Option B – Multi-Step Reasoning
+
+Problem: A company has 150 employees. 60% work in engineering, 25% in sales, and the rest in operations. If the company plans to hire 20% more engineers and 10% more sales people, how many total employees will there be after hiring?
+
+#### Without Chain-of-Thought
+
+**Prompt:**
+Calculate the total number of employees after hiring.
+
+**LLM Output:**
+172 employees.
+
+#### With Chain-of-Thought
+
+**Prompt:**
+Let's solve this step by step. A company has 150 employees. 60% work in engineering, 25% in sales, and the rest in operations. The company plans to hire 20% more engineers and 10% more sales people. Calculate the total number of employees after hiring.
+
+**LLM Output:**
+
+Engineering employees = 60% of 150 = 90
+
+Sales employees = 25% of 150 = 37.5 ≈ 38
+
+Operations employees = 150 − 90 − 38 = 22
+
+New engineering hires = 20% of 90 = 18
+
+New sales hires = 10% of 38 = 4
+
+Total new hires = 22
+
+Total employees after hiring = 150 + 22 = 172
+
+#### Comparison
+
+The chain-of-thought prompt showed each calculation step, making the reasoning process transparent. The direct prompt only provided the final answer. Chain-of-thought prompting helps reduce errors because each step can be verified individually. One limitation is that it produces longer responses.
+
+---
+
+### 3.2 Few-Shot Prompting
+
+#### Zero-Shot Prompt
+
+Classify each review as Positive, Negative, or Neutral.
+
+##### Results
+
+| Review | Classification |
+|----------|--------------|
+| The product arrived damaged and customer service was unhelpful. | Negative |
+| Works as expected, nothing special but does the job. | Neutral |
+| Absolutely love this! Best purchase I've made all year! | Positive |
+| The quality is okay but slightly overpriced for what you get. | Neutral |
+| Terrible experience, would not recommend to anyone. | Negative |
+
+#### Few-Shot Prompt
+
+Review: "This product exceeded my expectations!"  
+Sentiment: Positive
+
+Review: "Completely broke after one week of use."  
+Sentiment: Negative
+
+Review: "It's fine, does what it says on the box."  
+Sentiment: Neutral
+
+Now classify the following reviews.
+
+##### Results
+
+| Review | Classification |
+|----------|--------------|
+| The product arrived damaged and customer service was unhelpful. | Negative |
+| Works as expected, nothing special but does the job. | Neutral |
+| Absolutely love this! Best purchase I've made all year! | Positive |
+| The quality is okay but slightly overpriced for what you get. | Neutral |
+| Terrible experience, would not recommend to anyone. | Negative |
+
+#### Comparison Table
+
+| Review # | Zero-Shot Result | Few-Shot Result | Correct Label | Improved? |
+|----------|------------------|-----------------|--------------|-----------|
+| 1 | Negative | Negative | Negative | No |
+| 2 | Neutral | Neutral | Neutral | No |
+| 3 | Positive | Positive | Positive | No |
+| 4 | Neutral | Neutral | Neutral | No |
+| 5 | Negative | Negative | Negative | No |
+
+#### Analysis
+
+Few-shot prompting is most useful when a task requires a specific format or interpretation. By providing examples, the model learns the expected pattern and produces more consistent outputs. It is especially useful for classification, extraction, and structured data tasks.
 
 
 ## Part 4: Responsible AI & Limitations
